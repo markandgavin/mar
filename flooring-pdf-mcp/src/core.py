@@ -8,6 +8,12 @@ from pathlib import Path
 from typing import Any, Optional
 from urllib.parse import urlparse
 
+# Pre-installed Chromium path for this environment; falls back to Playwright's own install
+_CHROMIUM_EXEC = os.getenv(
+    "CHROMIUM_EXECUTABLE",
+    "/opt/pw-browsers/chromium-1194/chrome-linux/chrome",
+)
+
 import aiofiles
 import httpx
 import yaml
@@ -25,7 +31,7 @@ from .vendors.armstrong import ArmstrongVendor
 from .vendors.mannington import ManningtonVendor
 
 CONFIG_PATH = Path(__file__).parent.parent / "config" / "vendors.yaml"
-DOWNLOADS_DIR = Path(os.getenv("DOWNLOADS_DIR", "/app/downloads"))
+DOWNLOADS_DIR = Path(os.getenv("DOWNLOADS_DIR", str(Path(__file__).parent.parent / "downloads")))
 
 VENDOR_CLASSES: dict[str, type[BaseVendor]] = {
     "shaw": ShawVendor,
@@ -291,16 +297,20 @@ async def retrieve_flooring_pdfs(payload: WebhookPayload) -> PDFResponse:
         f"| code={product_code} | vendors={[v.vendor_name for v in vendors_to_try]}"
     )
 
+    launch_kwargs: dict[str, Any] = {
+        "headless": True,
+        "args": [
+            "--no-sandbox",
+            "--disable-setuid-sandbox",
+            "--disable-dev-shm-usage",
+            "--disable-gpu",
+        ],
+    }
+    if Path(_CHROMIUM_EXEC).exists():
+        launch_kwargs["executable_path"] = _CHROMIUM_EXEC
+
     async with async_playwright() as pw:
-        browser = await pw.chromium.launch(
-            headless=True,
-            args=[
-                "--no-sandbox",
-                "--disable-setuid-sandbox",
-                "--disable-dev-shm-usage",
-                "--disable-gpu",
-            ],
-        )
+        browser = await pw.chromium.launch(**launch_kwargs)
         try:
             results: list[PDFResponse] = []
             for v in vendors_to_try:
