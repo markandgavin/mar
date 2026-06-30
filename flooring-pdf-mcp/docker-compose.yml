@@ -1,0 +1,44 @@
+version: "3.9"
+
+services:
+  flooring-pdf-mcp:
+    build: .
+    container_name: flooring-pdf-mcp
+    ports:
+      - "5000:5000"
+    volumes:
+      # Persist downloaded PDFs and logs outside the container
+      - ./downloads:/app/downloads
+      - ./logs:/app/logs
+    environment:
+      - PORT=5000
+      - HOST=0.0.0.0
+      - DOWNLOADS_DIR=/app/downloads
+      # Optional: set a proxy if scraping requires one
+      # - HTTP_PROXY=http://proxy:8080
+      # - HTTPS_PROXY=http://proxy:8080
+    restart: unless-stopped
+    # Chromium needs this in Docker
+    security_opt:
+      - seccomp=unconfined
+    shm_size: "2gb"
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:5000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 15s
+
+  # Optional: run the MCP stdio server as a sidecar
+  # Uncomment if you need both HTTP and MCP interfaces simultaneously
+  # flooring-pdf-mcp-stdio:
+  #   build: .
+  #   container_name: flooring-pdf-mcp-stdio
+  #   command: ["python", "main.py", "--mcp"]
+  #   volumes:
+  #     - ./downloads:/app/downloads
+  #     - ./logs:/app/logs
+  #   environment:
+  #     - DOWNLOADS_DIR=/app/downloads
+  #   depends_on:
+  #     - flooring-pdf-mcp

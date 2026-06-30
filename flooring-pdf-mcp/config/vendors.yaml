@@ -1,0 +1,222 @@
+vendors:
+  shaw:
+    name: Shaw
+    vendor_id: shaw
+    base_url: https://www.shawfloors.com
+    search_url: https://www.shawfloors.com/flooring/search?q={query}
+    aliases:
+      - shaw floors
+      - shaw industries
+      - shaw carpet
+      - shaw hardwood
+    rate_limit_delay: 2.5
+    document_keywords:
+      warranty:
+        - warranty
+        - limited warranty
+        - guarantee
+      spec_sheet:
+        - spec sheet
+        - specifications
+        - product data
+        - data sheet
+        - technical data
+      care_maintenance:
+        - care
+        - maintenance
+        - cleaning
+        - cleaning guide
+        - care guide
+      installation:
+        - installation
+        - install guide
+        - installation instructions
+        - how to install
+      color_reference:
+        - color
+        - colour
+        - swatch
+        - sample
+        - chip
+
+  mohawk:
+    name: Mohawk
+    vendor_id: mohawk
+    base_url: https://www.mohawkflooring.com
+    search_url: https://www.mohawkflooring.com/search?q={query}
+    aliases:
+      - mohawk flooring
+      - mohawk industries
+      - mohawk carpet
+      - mohawk hardwood
+      - revwood
+      - pergo
+    rate_limit_delay: 2.5
+    document_keywords:
+      warranty:
+        - warranty
+        - limited warranty
+      spec_sheet:
+        - spec sheet
+        - specifications
+        - product data
+        - data sheet
+      care_maintenance:
+        - care
+        - maintenance
+        - cleaning
+      installation:
+        - installation
+        - install
+        - instructions
+      color_reference:
+        - color
+        - colour
+        - swatch
+        - sample
+
+  daltile:
+    name: Daltile
+    vendor_id: daltile
+    base_url: https://www.daltile.com
+    search_url: https://www.daltile.com/products/search/{query}
+    aliases:
+      - dal-tile
+      - dal tile
+      - daltile tile
+    rate_limit_delay: 2.0
+    document_keywords:
+      warranty:
+        - warranty
+        - limited warranty
+      spec_sheet:
+        - spec sheet
+        - specifications
+        - technical data
+        - data sheet
+        - product data sheet
+      care_maintenance:
+        - care
+        - maintenance
+        - cleaning
+        - grout care
+      installation:
+        - installation
+        - install
+        - setting guide
+        - tile installation
+      color_reference:
+        - color
+        - colour
+        - selection guide
+        - catalog
+
+  armstrong:
+    name: Armstrong
+    vendor_id: armstrong
+    base_url: https://www.armstrongflooring.com
+    search_url: https://www.armstrongflooring.com/residential/en-us/search.html#q={query}
+    aliases:
+      - armstrong flooring
+      - armstrong hardwood
+      - armstrong vinyl
+      - armstrong luxury vinyl
+    rate_limit_delay: 2.5
+    document_keywords:
+      warranty:
+        - warranty
+        - limited warranty
+      spec_sheet:
+        - spec sheet
+        - specifications
+        - product data
+        - technical
+      care_maintenance:
+        - care
+        - maintenance
+        - cleaning
+        - floor care
+      installation:
+        - installation
+        - install
+        - instructions
+        - fitting
+      color_reference:
+        - color
+        - colour
+        - sample
+        - selection
+
+  altro:
+    name: Altro
+    vendor_id: altro
+    base_url: https://www.altro.com
+    search_url: https://www.altro.com/us/search#{query}
+    aliases:
+      - altro floors
+      - altro flooring
+      - altro safety flooring
+      - altro us
+      - altrofloors
+    rate_limit_delay: 2.5
+    document_keywords:
+      warranty:
+        - warranty
+        - guarantee
+        - product warranty
+      spec_sheet:
+        - technical data sheet
+        - data sheet
+        - specifications
+        - tds
+        - spec sheet
+      care_maintenance:
+        - cleaning guide
+        - care
+        - maintenance
+        - cleaning
+        - slip resistant cleaning
+      installation:
+        - installation guide
+        - install
+        - installation
+        - fitting
+      color_reference:
+        - color
+        - colour
+        - sample card
+        - swatch
+        - selector
+
+  mannington:
+    name: Mannington
+    vendor_id: mannington
+    base_url: https://www.mannington.com
+    search_url: https://www.mannington.com/search?q={query}
+    aliases:
+      - mannington mills
+      - mannington carpet
+      - mannington hardwood
+      - mannington vinyl
+    rate_limit_delay: 2.5
+    document_keywords:
+      warranty:
+        - warranty
+        - limited warranty
+      spec_sheet:
+        - spec sheet
+        - specifications
+        - product data
+      care_maintenance:
+        - care
+        - maintenance
+        - cleaning
+      installation:
+        - installation
+        - install
+        - instructions
+      color_reference:
+        - color
+        - colour
+        - sample
+        - collection
