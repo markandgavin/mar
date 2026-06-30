@@ -29,6 +29,7 @@ from .vendors.mohawk import MohawkVendor
 from .vendors.daltile import DaltileVendor
 from .vendors.armstrong import ArmstrongVendor
 from .vendors.mannington import ManningtonVendor
+from .vendors.altro import AltroVendor
 
 CONFIG_PATH = Path(__file__).parent.parent / "config" / "vendors.yaml"
 DOWNLOADS_DIR = Path(os.getenv("DOWNLOADS_DIR", str(Path(__file__).parent.parent / "downloads")))
@@ -39,6 +40,7 @@ VENDOR_CLASSES: dict[str, type[BaseVendor]] = {
     "daltile": DaltileVendor,
     "armstrong": ArmstrongVendor,
     "mannington": ManningtonVendor,
+    "altro": AltroVendor,
 }
 
 _VENDOR_INSTANCES: dict[str, BaseVendor] = {}

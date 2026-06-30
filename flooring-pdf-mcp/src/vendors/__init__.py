@@ -3,6 +3,7 @@ from .mohawk import MohawkVendor
 from .daltile import DaltileVendor
 from .armstrong import ArmstrongVendor
 from .mannington import ManningtonVendor
+from .altro import AltroVendor
 
 __all__ = [
     "ShawVendor",
@@ -10,4 +11,5 @@ __all__ = [
     "DaltileVendor",
     "ArmstrongVendor",
     "ManningtonVendor",
+    "AltroVendor",
 ]

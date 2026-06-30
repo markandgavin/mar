@@ -66,6 +66,23 @@ TEST_PAYLOADS: list[dict] = [
             "product_code": "RE01",
         },
     },
+    # Altro — Classic 25 Pewter Grey with explicit vendor + code
+    {
+        "label": "Altro - Classic 25 Pewter Grey",
+        "payload": {
+            "product_query": "Altro Classic 25 Pewter Grey X2539R11",
+            "vendor_name": "Altro",
+            "product_code": "X2539R11",
+            "color": "Pewter Grey",
+        },
+    },
+    # Altro — inferred from query prefix, no explicit vendor
+    {
+        "label": "Altro (inferred) - Classic 25",
+        "payload": {
+            "product_query": "Altro Classic 25 safety flooring",
+        },
+    },
     # No vendor — test all-vendor fallback search
     {
         "label": "No vendor - ambiguous query",

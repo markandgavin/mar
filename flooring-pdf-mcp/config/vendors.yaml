@@ -147,6 +147,47 @@ vendors:
         - sample
         - selection
 
+  altro:
+    name: Altro
+    vendor_id: altro
+    base_url: https://www.altro.com
+    search_url: https://www.altro.com/us/search#{query}
+    aliases:
+      - altro floors
+      - altro flooring
+      - altro safety flooring
+      - altro us
+      - altrofloors
+    rate_limit_delay: 2.5
+    document_keywords:
+      warranty:
+        - warranty
+        - guarantee
+        - product warranty
+      spec_sheet:
+        - technical data sheet
+        - data sheet
+        - specifications
+        - tds
+        - spec sheet
+      care_maintenance:
+        - cleaning guide
+        - care
+        - maintenance
+        - cleaning
+        - slip resistant cleaning
+      installation:
+        - installation guide
+        - install
+        - installation
+        - fitting
+      color_reference:
+        - color
+        - colour
+        - sample card
+        - swatch
+        - selector
+
   mannington:
     name: Mannington
     vendor_id: mannington
